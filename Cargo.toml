@@ -24,8 +24,13 @@ edition = "2021"
 # On MacOS, `brew install llvm` and follow steps in `brew info llvm`
 #[target.x86_64-apple-darwin]
 #rustflags = ["-C", "link-arg=-fuse-ld=lld"]
-
-
+[lib]
+path = "src/lib.rs"
+[[bin]]
+path = "src/main.rs"
+name = "zero2prod"
 [dependencies]
 actix-web = "4"
 tokio = { version = "1.39.2", features = ["rt", "rt-multi-thread", "macros"] }
+[dev-dependencies]
+reqwest="0.11"
